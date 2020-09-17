@@ -7,7 +7,6 @@ function reciprocal(num) {
   return  1 / num;
 }
 
-
 module.exports = {
   returnsThree,
   reciprocal
