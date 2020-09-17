@@ -1,7 +1,20 @@
 class HanoiGame {
-  constructor() {}
+  constructor(towers = [[3, 2, 1], [], []]) {
+    this.towers = towers;
+  }
 
-  isValidMove(startTowerIdx, endTowerIdx) {}
+  isValidMove(startTowerIdx, endTowerIdx) {
+    let start = this.towers[startTowerIdx];
+    let target = this.towers[endTowerIdx];
+    if (!target.length || start[start.length-1] < target[target.length-1]) {
+      return true;
+    } else if (startTowerIdx === endTowerIdx ||
+                start.length === 0 ||
+                endTowerIdx > this.towers.length-1
+                ){
+      return false;
+    }
+  }
 
   move(startTowerIdx, endTowerIdx) {}
 
