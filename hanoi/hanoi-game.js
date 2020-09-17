@@ -6,25 +6,38 @@ class HanoiGame {
   isValidMove(startTowerIdx, endTowerIdx) {
     let start = this.towers[startTowerIdx];
     let target = this.towers[endTowerIdx];
-    
+
     if (startTowerIdx === endTowerIdx) {
-      return false;
-    } else if (start.length === 0) {
       return false;
     } else if (target === undefined) {
       return false;
-    } else if (start > 2) {
+    } else if (start === undefined) {
       return false;
-    } else if (start[start.length - 1] > target[target.length - 1]) { 
+    } else if (start.length === 0) {
+      return false;
+    } else if (start[start.length - 1] > target[target.length - 1]) {
       return false;
     } else if (!target.length || start[start.length - 1] < target[target.length - 1]) {
       return true;
     }
   }
 
-  move(startTowerIdx, endTowerIdx) {}
+  move(startTowerIdx, endTowerIdx) {
+    let start = this.towers[startTowerIdx];
+    let target = this.towers[endTowerIdx];
+    let isValid = this.isValidMove(startTowerIdx, endTowerIdx);
 
-  isWon() {}
+    if (isValid) {
+      target.push(start.pop());
+    }
+    return isValid;
+  }
+
+  isWon() {
+    if (this.towers[0].length === 0){
+      
+    }
+  }
 
   // the below methods are complete and do not need to be modified
   print() {
