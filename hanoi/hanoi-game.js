@@ -9,9 +9,7 @@ class HanoiGame {
 
     if (startTowerIdx === endTowerIdx) {
       return false;
-    } else if (target === undefined) {
-      return false;
-    } else if (start === undefined) {
+    } else if (!target || !start) {
       return false;
     } else if (start.length === 0) {
       return false;
@@ -34,9 +32,10 @@ class HanoiGame {
   }
 
   isWon() {
-    if (this.towers[0].length === 0){
-      
+    if (this.towers[1].length === 3 || this.towers[2].length === 3) {
+      return true;
     }
+    return false;
   }
 
   // the below methods are complete and do not need to be modified
