@@ -6,13 +6,19 @@ class HanoiGame {
   isValidMove(startTowerIdx, endTowerIdx) {
     let start = this.towers[startTowerIdx];
     let target = this.towers[endTowerIdx];
-    if (!target.length || start[start.length-1] < target[target.length-1]) {
-      return true;
-    } else if (startTowerIdx === endTowerIdx ||
-                start.length === 0 ||
-                endTowerIdx > this.towers.length-1
-                ){
+    
+    if (startTowerIdx === endTowerIdx) {
       return false;
+    } else if (start.length === 0) {
+      return false;
+    } else if (target === undefined) {
+      return false;
+    } else if (start > 2) {
+      return false;
+    } else if (start[start.length - 1] > target[target.length - 1]) { 
+      return false;
+    } else if (!target.length || start[start.length - 1] < target[target.length - 1]) {
+      return true;
     }
   }
 
